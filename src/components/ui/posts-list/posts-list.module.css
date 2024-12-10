@@ -1,0 +1,57 @@
+.postLink:visited {
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 23px 0 0;
+  align-self: center;
+  inline-size: 90vw;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 922px;
+  align-self: center;
+}
+
+.postsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 274px);
+  gap: 50px;
+  max-inline-size: 100vw;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 23px;
+}
+
+@media (width < 984px) {
+  .postsList {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .content {
+    align-self: flex-start;
+  }
+}
+
+@media (width < 984px) {
+  .postsList {
+    grid-template-columns: repeat(2);
+  }
+
+  .content {
+    align-self: flex-start;
+  }
+
+  .postLink article {
+    inline-size: 325px;
+    block-size: 325px;
+  }
+}

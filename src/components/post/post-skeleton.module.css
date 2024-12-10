@@ -1,0 +1,45 @@
+.main {
+  display: flex;
+  justify-content: center;
+  padding-block: 20px;
+}
+
+.post {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-self: center;
+  border-radius: 10px;
+  background-color: var(--skeleton-base-color);
+  inline-size: clamp(315px, 100vw, 922px);
+  block-size: 830px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 12px;
+  left: 30px;
+  top: 30px;
+}
+
+.dateOfPublication {
+  inline-size: 87px;
+  block-size: 20px;
+}
+
+.cityName {
+  inline-size: 150px;
+  block-size: 36px;
+}
+
+.postTitleText {
+  inline-size: clamp(255px, calc(100vw - 120px), 575px);
+  block-size: 23px;
+}
+
+.postMainImage {
+  inline-size: clamp(255px, calc(100vw - 120px), 862px);
+  block-size: 647px;
+}

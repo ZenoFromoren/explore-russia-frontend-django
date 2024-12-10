@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-self: center;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  inline-size: clamp(315px, calc(100vw - 60px), 862px);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); */
+}
+
+.dateOfPublication {
+  font-size: 16px;
+  color: #b5b5b5;
+}
+
+.cityName {
+  font-size: 36px;
+}
+
+.postTitleText,
+.basicText {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.basicText {
+  margin-block-start: 1em;
+}
+
+.postTitleText {
+  margin-block-start: 6px;
+  margin-block-end: 1em;
+}
+
+.postMainImage {
+  border-radius: 10px;
+  inline-size: 100%;
+}
+
+.blockTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-block-end: 1em;
+}
+
+.tableOfContents__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-inline-start: 20px;
+}
+
+.tableOfContents__nav-list-item {
+  font-size: 18px;
+}
+
+.tableOfContents__nav-list-item-link,
+.tableOfContents__nav-list-item::marker {
+  color: #2d66f8;
+}
+
+.tableOfContents__nav-list-item-link:hover,
+.tableOfContents__nav-list-item:hover::marker {
+  color: #7291ff;
+}
+
+.tableOfContents__nav-list-item-link,
+.tableOfContents__nav-list-item-link:visited {
+  text-decoration: none;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
+.blockSubTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-block: 1em;
+}
+
+.basicText__list {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-block-start: 1em;
+  padding-inline-start: 30px;
+}
+
+.gallery {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery__list {
+  display: flex;
+  justify-self: center;
+  list-style: none;
+  inline-size: clamp(315px, calc(100vw - 60px), 762px);
+  overflow: hidden;
+  margin-block-start: 20px;
+}
+
+.gallery__list-item {
+  inline-size: inherit;
+}
+
+.gallery__list-item-image {
+  block-size: 500px;
+  inline-size: inherit;
+  border-radius: 10px;
+}
+
+.gallery__list-item-caption {
+  font-size: 16px;
+  color: #b5b5b5;
+  margin-block-start: 0.5em;
+}
+
+.gallery__button {
+  display: flex;
+  position: absolute;
+  content: '';
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.gallery__button-left {
+  left: 60px;
+}
+
+.gallery__button-right {
+  right: 60px;
+  transform: rotate(180deg);
+}
+
+@media (width <= 922px) {
+  .post {
+    border-radius: 0;
+  }
+}

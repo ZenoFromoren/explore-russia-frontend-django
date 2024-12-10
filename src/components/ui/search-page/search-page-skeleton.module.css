@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: center;
+  padding-block: 24px;
+  max-inline-size: 922px;
+}
+
+.title {
+  inline-size: 247px;
+  block-size: 28px;
+}
+
+.searchResultsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

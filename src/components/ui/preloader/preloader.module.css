@@ -1,0 +1,22 @@
+.preloader {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  block-size: 50vh;
+}
+
+.circle {
+  block-size: 50px;
+  inline-size: 50px;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: #000 transparent transparent;
+  animation: spin 0.75s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

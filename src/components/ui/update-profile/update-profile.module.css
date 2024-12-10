@@ -1,0 +1,74 @@
+.updateProfileForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBlock {
+  display: flex;
+  position: relative;
+  background-color: #eaeaea;
+  border-radius: 30px;
+  padding: 10px 21px;
+  border: none;
+  margin-block-start: 16px;
+  margin-block-end: 24px;
+  font-family: 'Roboto';
+}
+
+.input,
+.input::placeholder,
+.updateProfileFormButton,
+.textArea {
+  font-size: 14px;
+  font-family: 'Roboto';
+}
+
+.textArea {
+  background-color: #eaeaea;
+  border-radius: 30px;
+  padding: 16px 21px;
+  border: none;
+  margin-block: 12px;
+  resize: none;
+  block-size: auto;
+  block-size: 100px;
+}
+
+.input::placeholder,
+textarea::placeholder {
+  color: #8e8e8e;
+}
+
+.input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+.input {
+  background-color: inherit;
+  border: none;
+  inline-size: 90%;
+  padding: 0;
+}
+
+.updateProfileFormButton {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Roboto';
+  padding: 20px 24px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  margin-block-start: 12px;
+}
+
+.updateProfileFormButton:hover {
+  background-color: #4a4949;
+}
+
+.updateProfileFormButton:disabled {
+  background-color: #d1d1d1;
+  transition: none;
+  cursor: default;
+}

@@ -1,0 +1,129 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.authBlock {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 14px;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 24px;
+}
+
+.authBlock__text {
+  font-size: 16px;
+}
+
+.authBlock__buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.loginButton, .registerButton, .leaveACommentButton {
+  cursor: pointer;
+}
+
+.loginButton {
+  background-color: #027700;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Roboto';
+  max-inline-size: 300px;
+  padding: 16px 28px;
+  transition: background-color 0.5s ease;
+  font-size: 14px;
+}
+
+.loginButton:hover {
+  background-color: #3BA639;
+}
+
+.registerButton {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Roboto';
+  padding: 16px 28px;
+  transition: background-color 0.5s ease;
+  font-size: 14px;
+}
+
+.registerButton:hover {
+  background-color: #4a4949;
+}
+
+.leaveACommentButton {
+  fill: #000;
+  transition: fill 0.2s ease-out;
+}
+
+.leaveACommentButton:hover {
+  fill: #4a4949;
+}
+
+.textareaBlock {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 20px 24px;
+  border: none;
+}
+
+.textarea {
+  background-color: inherit;
+  border: none;
+  inline-size: 95%;
+  padding: 0;
+  font-family: 'Roboto';
+  font-size: 14px;
+  resize: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  block-size: 20px;
+}
+
+.textarea::placeholder {
+  color: #8e8e8e;
+}
+
+.textarea:focus-visible {
+  outline: none;
+}
+
+.comments__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.comments__block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (width < 962px) {
+  .comments {
+    margin-inline: 20px;
+  }
+}

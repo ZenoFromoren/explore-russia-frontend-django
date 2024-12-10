@@ -1,0 +1,56 @@
+.postCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  max-inline-size: 274px;
+  max-block-size: 274px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+.postCard:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 20px 25px 16px;
+}
+
+.date, .cityName, .title {
+  margin: 0;
+}
+
+.date {
+  font-size: 14px;
+  color: #B5B5B5;
+  line-height: 16px;
+}
+
+.cityName {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.title {
+  font-size: 16px;
+  max-block-size: 56px;
+}
+
+.image {
+  block-size: 50%;
+  object-fit: fill;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+@media (width < 984px) {
+  .postCard {
+    inline-size: 325px;
+    block-size: 325px;
+  }
+}

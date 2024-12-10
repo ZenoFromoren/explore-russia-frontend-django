@@ -1,0 +1,51 @@
+.postCard {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-inline-size: 274px;
+  max-block-size: 274px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.description {
+  display: flex;
+  position: absolute;
+  content: '';
+  inline-size: 224px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 25px 16px;
+}
+
+.date, .cityName, .title {
+  margin: 0;
+}
+
+.date {
+  inline-size: 70px;
+  block-size: 16px;
+}
+
+.cityName {
+  inline-size: 100px;
+  block-size: 18px;
+}
+
+.title {
+  max-block-size: 56px;
+  inline-size: 215px;
+  block-size: 36px;
+}
+
+.image {
+  display: flex;
+  position: absolute;
+  content: '';
+  inline-size: 100%;
+  bottom: 0;
+  block-size: 50%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

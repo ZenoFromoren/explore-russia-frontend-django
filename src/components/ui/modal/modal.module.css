@@ -1,0 +1,29 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 32px;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 1;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); */
+}
+
+.overlay {
+  content: '';
+  position: fixed;
+  background-color: #00000025;
+  inset: 0;
+}
+
+.header {
+  display: flex;
+  gap: 143px;
+  margin-block-end: 32px;
+  white-space: nowrap;
+}
+
+.closeButton {
+  cursor: pointer;
+}

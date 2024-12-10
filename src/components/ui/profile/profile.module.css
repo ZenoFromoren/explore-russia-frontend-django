@@ -1,0 +1,83 @@
+.main {
+  display: flex;
+  padding-block: 20px;
+  justify-content: center;
+}
+
+.profilePage {
+  display: flex;
+  padding: 50px;
+  gap: 50px;
+  background-color: #fff;
+  border-radius: 20px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); */
+}
+
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.avatar {
+  inline-size: 200px;
+}
+
+.dateOfRegistration, .additionalLink {
+  font-size: 14px;
+}
+
+.additionalLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.additionalLink {
+  color: #1045FF;
+  cursor: pointer;
+}
+
+.additionalLink:hover {
+  color: #7291FF;
+}
+
+.contentRight {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-block-start: 10px;
+}
+
+.contentRightTop {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contentRightBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.city, .about {
+  font-size: 16px;
+}
+
+.userName {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cityBlock {
+  display: flex;
+  gap: 6px
+}
+
+.contentRightTop::after {
+  content: '';
+  max-block-size: 1px;
+  max-inline-size: 516px;
+  border-block-end: 1px solid #b5b5b5;
+}

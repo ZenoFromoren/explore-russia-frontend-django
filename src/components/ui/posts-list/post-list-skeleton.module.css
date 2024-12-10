@@ -1,0 +1,34 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 23px 0 0;
+  align-self: center;
+  inline-size: 90vw;
+}
+
+.content {
+  align-self: center;
+}
+
+.postsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 274px);
+  gap: 48px;
+  max-inline-size: 922px;
+}
+
+.title {
+  inline-size: 222px;
+  block-size: 23px;
+  margin: 0 0 23px;
+}
+
+@media (width < 984px) {
+  .postsList {
+    grid-template-columns: repeat(2, 274px);
+  }
+
+  .content {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,129 @@
+.main {
+  display: flex;
+  padding-block: 20px;
+  justify-content: center;
+}
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 20px;
+  inline-size: 557px;
+}
+
+.title {
+  font-size: 32px;
+  margin-block-end: 20px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBlock {
+  display: flex;
+  position: relative;
+  background-color: #EAEAEA;
+  border-radius: 30px;
+  padding: 20px 24px;
+  border: none;
+  margin-block: 12px;
+  font-family: 'Roboto';
+}
+
+.input, .input::placeholder, .loginFormButton, .additionalLink {
+  font-size: 16px;
+}
+
+.input {
+  background-color: inherit;
+  border: none;
+  inline-size: 90%;
+  padding: 0;
+}
+
+.input::placeholder {
+  color: #8e8e8e;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+input:-webkit-autofill, input:-webkit-autofill:active, input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+  background-color: inherit;
+  font-size: 16px;
+}
+
+.showHidePasswordButton {
+  display: flex;
+  position: absolute;
+  align-self: center;
+  margin-inline-end: 48px;
+  cursor: pointer;
+  right: -24px;
+}
+
+.loginBlock {
+  display: flex;
+  margin-block-start: 12px;
+  inline-size: 100%;
+  justify-content: space-between;
+}
+
+.socialNetsBlock {
+  display: flex;
+  gap: 16px;
+  margin-inline: 36px;
+}
+
+.socialNetIcon {
+  max-inline-size: 50px;
+  cursor: pointer;
+}
+
+.loginFormButton {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Roboto';
+  inline-size: 100%;
+  padding: 20px 24px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.loginFormButton:hover {
+  background-color: #4A4949;
+}
+
+.loginForm:disabled {
+  cursor: default;
+}
+
+.additionalLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-block-start: 24px;
+}
+
+.additionalLink {
+  color: #1045FF;
+}
+
+.additionalLink:hover {
+  color: #7291FF;
+  cursor: pointer;
+}
+
+.error {
+  color: #f00;
+  margin-block: 4px;
+  margin-inline-start: 24px;
+}

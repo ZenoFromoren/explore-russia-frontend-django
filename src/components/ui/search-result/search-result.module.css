@@ -1,0 +1,64 @@
+.searchResult {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  inline-size: clamp(315px, calc(100vw - 100px), 862px);
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25); */
+  justify-content: space-between;
+}
+
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentTopLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contentTopLeft::after {
+  content: '';
+  max-block-size: 1px;
+  max-inline-size: 516px;
+  border-block-end: 1px solid #b5b5b5;
+  margin-block: 14px;
+}
+
+.date,
+.cityName,
+.title {
+  margin: 0;
+}
+
+.title, .basicText {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.date {
+  font-size: 14px;
+  color: #b5b5b5;
+  line-height: 16px;
+}
+
+.cityName {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
+}
+
+.title {
+  max-block-size: 56px;
+}
+
+.image {
+  display: flex;
+  object-fit: fill;
+  border-radius: inherit;
+  align-self: flex-start;
+  inline-size: clamp(250px, 32vw, 325px);
+  margin-inline-start: 25px;
+}

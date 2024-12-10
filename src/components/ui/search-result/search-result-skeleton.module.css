@@ -1,0 +1,53 @@
+.searchResult {
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  inline-size: clamp(315px, calc(100vw - 50px), 862px);
+  block-size: 235px;
+}
+
+.content {
+  display: flex;
+  position: absolute;
+  content: '';
+  inset: 20px 25px;
+}
+
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  inline-size: 50%;
+}
+
+.date {
+  inline-size: 70px;
+  block-size: 16px;
+}
+
+.cityName {
+  inline-size: 100px;
+  block-size: 23px;
+}
+
+.title {
+  inline-size: 50%;
+  block-size: 19px;
+}
+
+.basicText {
+  inline-size: 457px;
+  block-size: 76px;
+  margin-block-start: 14px;
+  inline-size: 100%;
+}
+
+.image {
+  position: absolute;
+  content: '';
+  right: 0;
+  block-size: 100%;
+  align-self: flex-start;
+  inline-size: clamp(250px, 32vw, 325px);
+  margin-inline-start: 25px;
+}

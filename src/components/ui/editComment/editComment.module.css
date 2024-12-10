@@ -1,0 +1,39 @@
+.editCommentForm {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.textarea {
+  background-color: #eaeaea;
+  border-radius: 20px;
+  padding: 21px;
+  border: none;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: #8e8e8e;
+}
+
+.submitButton {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Roboto';
+  padding: 20px 24px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  margin-block-start: 24px;
+}
+
+.submitButton:hover {
+  background-color: #4a4949;
+}
+
+.submitButton:disabled {
+  background-color: #D1D1D1;
+  transition: none;
+  cursor: default;
+}
