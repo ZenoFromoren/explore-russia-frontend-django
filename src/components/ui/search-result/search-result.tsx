@@ -4,7 +4,7 @@ import styles from './search-result.module.css';
 
 type TSearchResultProps = {
   id: number;
-  createdAt: Date;
+  created_at: Date;
   city: string;
   title: string;
   image: string;
@@ -13,7 +13,7 @@ type TSearchResultProps = {
 
 export const SearchResult: FC<TSearchResultProps> = ({
   id,
-  createdAt,
+  created_at,
   city,
   title,
   image,
@@ -25,7 +25,7 @@ export const SearchResult: FC<TSearchResultProps> = ({
         <div className={styles.contentTopLeft}>
           <p
             className={styles.date}
-          >{`${new Date(createdAt).toLocaleDateString()}`}</p>
+          >{`${new Date(created_at).toLocaleDateString()}`}</p>
           <p className={styles.cityName}>{city}</p>
           <p className={styles.title}>{title}</p>
         </div>

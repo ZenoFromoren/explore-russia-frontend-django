@@ -3,8 +3,9 @@ import {
   fetchLastPosts,
   fetchPostById,
   fetchPosts,
+  searchPosts,
 } from '../thunks/postsThunks';
-import { TComment, TEditCommentData, TPost } from '../../utils/types';
+import { TComment, TCommentData, TPost } from '../../utils/types';
 import { editComment, getComments } from '../thunks/commentsThunks';
 
 export interface IPostsState {
@@ -12,8 +13,10 @@ export interface IPostsState {
   lastPosts: TPost[];
   currentPost: TPost | null;
   isLoading: boolean;
+  searchResults: TPost[];
+  isSearchResultsLoading: boolean;
   comments: TComment[];
-  editCommentData: TEditCommentData | null;
+  commentData: TCommentData | null;
 }
 
 const initialState: IPostsState = {
@@ -21,8 +24,10 @@ const initialState: IPostsState = {
   lastPosts: [],
   currentPost: null,
   isLoading: false,
+  searchResults: [],
+  isSearchResultsLoading: false,
   comments: [],
-  editCommentData: null,
+  commentData: null,
 };
 
 export const postsSlice = createSlice({
@@ -32,8 +37,11 @@ export const postsSlice = createSlice({
     clearCurrentPost: (state) => {
       state.currentPost = null;
     },
-    setEditCommentData: (state, action) => {
-      state.editCommentData = action.payload;
+    setCommentData: (state, action) => {
+      state.commentData = action.payload;
+    },
+    clearSearchResults: (state) => {
+      state.searchResults = [];
     },
   },
   selectors: {
@@ -41,8 +49,10 @@ export const postsSlice = createSlice({
     selectLastPosts: (state) => state.lastPosts,
     selectCurrentPost: (state) => state.currentPost,
     selectIsLoading: (state) => state.isLoading,
+    selectSearchResults: (state) => state.searchResults,
+    selectIsSearchResultsLoading: (state) => state.isSearchResultsLoading,
     selectComments: (state) => state.comments,
-    selectEditCommentData: (state) => state.editCommentData,
+    selectCommentData: (state) => state.commentData,
   },
   extraReducers: (builder) => {
     builder
@@ -64,10 +74,20 @@ export const postsSlice = createSlice({
         state.currentPost = action.payload;
       })
       .addCase(editComment.fulfilled, (state) => {
-        state.editCommentData = null;
+        state.commentData = null;
       })
       .addCase(getComments.fulfilled, (state, action) => {
         state.comments = action.payload;
+      })
+      .addCase(searchPosts.pending, (state) => {
+        state.isSearchResultsLoading = true;
+      })
+      .addCase(searchPosts.fulfilled, (state, action) => {
+        state.isSearchResultsLoading = false;
+        state.searchResults = action.payload;
+      })
+      .addCase(searchPosts.rejected, (state) => {
+        state.isSearchResultsLoading = false;
       });
   },
 });

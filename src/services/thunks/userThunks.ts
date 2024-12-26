@@ -1,13 +1,13 @@
 import { setCookie } from './../../utils/cookie';
 import {
-  TCodeResonse,
+  TCodeResponse,
   TLoginData,
   TRegisterData,
   TUpdateData,
 } from '../../utils/types';
 import {
   getCodeConfirmRegistrationApi,
-  getCodeForgotPasswordApi,
+  getCodeResetPasswordApi,
   getUserApi,
   loginUserApi,
   loginYandexApi,
@@ -23,8 +23,8 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }: TLoginData) => {
     const userData = await loginUserApi({ email, password });
 
-    setCookie('accessToken', userData.accessToken);
-    // localStorage.setItem('refreshToken', userData.refreshToken);
+    setCookie('accessToken', `Bearer ${userData.access}`);
+    localStorage.setItem('refreshToken', `Bearer ${userData.refresh}`);
 
     return userData.user;
   }
@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
 export const loginYandex = createAsyncThunk('user/loginYandex', async () => {
   const userData = await loginYandexApi();
 
-  setCookie('accessToken', userData.accessToken);
+  setCookie('accessToken', userData.access);
   // localStorage.setItem('refreshToken', userData.refreshToken);
 
   return userData.user;
@@ -44,7 +44,7 @@ export const registerUser = createAsyncThunk(
   async (registerDTO: TRegisterData) => {
     const registerData = await registerUserApi(registerDTO);
 
-    setCookie('accessToken', registerData.accessToken);
+    setCookie('accessToken', registerData.access);
 
     return registerData;
   }
@@ -60,16 +60,16 @@ export const updateUser = createAsyncThunk(
 
 export const getCodeConfirmRegistration = createAsyncThunk(
   'user/getCodeConfirmRegistration',
-  async (registerData: TRegisterData): Promise<TCodeResonse> => {
+  async (registerData: TRegisterData): Promise<TCodeResponse> => {
     const userData = await getCodeConfirmRegistrationApi(registerData);
     return userData;
   }
 );
 
-export const getCodeForgotPassword = createAsyncThunk(
-  'user/getCodeForgotPassword',
-  async (): Promise<TCodeResonse> => {
-    const userData = await getCodeForgotPasswordApi();
+export const getCodeResetPassword = createAsyncThunk(
+  'user/getCodeResetPassword',
+  async (): Promise<TCodeResponse> => {
+    const userData = await getCodeResetPasswordApi();
     return userData;
   }
 );

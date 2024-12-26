@@ -19,7 +19,7 @@ import { ForgotPassword } from '../forgot-password/forgot-password';
 import { ResetPassword } from '../reset-password/reset-password';
 import { NotFoundPage } from '../ui/not-found-page/not-found-page';
 import { YandexOAuth } from '../yandexOAuth/yandexOAuth';
-import { EditComment } from '../editComment/editComment';
+import { CommentModal } from '../commentModal/commentModal';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -125,11 +125,23 @@ const App = () => {
                   title='Редактирование комментария'
                   onClose={() => onModalClose()}
                 >
-                  <EditComment />
+                  <CommentModal />
                 </Modal>
               </ProtectedRoute>
             }
-          />
+          /><Route
+          path='/posts/:postId/comments/reply/:id'
+          element={
+            <ProtectedRoute>
+              <Modal
+                title='Ответ на комментарий'
+                onClose={() => onModalClose()}
+              >
+                <CommentModal />
+              </Modal>
+            </ProtectedRoute>
+          }
+        />
         </Routes>
       )}
     </div>

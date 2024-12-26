@@ -1,6 +1,6 @@
 export type TPost = {
   id: number;
-  createdAt: Date;
+  created_at: Date;
   city: string;
   title: string;
   image: string;
@@ -15,7 +15,7 @@ export type TUser = {
   city: string;
   email: string;
   about: string;
-  createdAt: string;
+  date_joined: string;
   avatar: string;
   yandexId: string;
 };
@@ -25,20 +25,27 @@ export type TLoginData = {
   password: string;
 };
 
-export type TRefreshResponse = {
-  refreshToken: string;
-  accessToken: string;
-};
+type TServerResponse<T> = {
+  success: boolean;
+} & T;
+
+export type TRefreshResponse = TServerResponse<{
+  refresh: string;
+  access: string;
+}>;
 
 export type TAuthResponse = {
-  accessToken: string;
+  access: string;
+  refresh: string;
   user: TUser;
 };
 
-export type TRegisterData = TLoginData & {
+export type TRegisterData = {
+  email: string;
+  password: string;
   username: string;
-  city: string;
-  about?: string | null;
+  city?: string | undefined;
+  about?: string | undefined;
 };
 
 export type TUpdateData = {
@@ -49,7 +56,7 @@ export type TUpdateData = {
   password?: string;
 };
 
-export type TCodeResonse = {
+export type TCodeResponse = {
   user: TRegisterData;
   code: string;
 };
@@ -61,17 +68,24 @@ export type TComment = {
   post: TPost;
   replies: TComment[];
   parentId: number
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
+  is_edited: boolean;
 };
 
 export type TCreateCommentData = {
   text: string;
-  userId: number;
+  post: number;
+  parent?: number | null;
+};
+
+export type TCommentData = {
+  id: number;
+  text?: string;
   postId: number;
 };
 
-export type TEditCommentData = {
-  id: number;
-  text: string;
-};
+export type TRepliesData = {
+  parent: number;
+  post: number;
+}

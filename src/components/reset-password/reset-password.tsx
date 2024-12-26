@@ -33,7 +33,6 @@ export const ResetPassword: FC = () => {
     e.preventDefault();
     dispatch(updateUser({ password })).then((res) => {
       if (res.type === 'user/updateUser/fulfilled') {
-        // dispatch(userActions.userLogout());
         navigate('../profile', { replace: true });
       }
     });

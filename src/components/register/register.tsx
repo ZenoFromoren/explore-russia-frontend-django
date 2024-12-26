@@ -1,7 +1,7 @@
 import { FC, SyntheticEvent, useState } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
 import { RegisterUI } from '../ui/register/register';
-import { defaultAbout, emailPattern } from '../../utils/constants';
+import { emailPattern } from '../../utils/constants';
 import { userActions, userSelectors } from '../../services/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { getCodeConfirmRegistration } from '../../services/thunks/userThunks';
@@ -49,7 +49,7 @@ export const Register: FC = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(getCodeConfirmRegistration({ username, city, about: about || defaultAbout, email, password })).then(
+    dispatch(getCodeConfirmRegistration({ username, city: city || undefined, about: about || undefined, email, password })).then(
       (res) => {
         if (res.type === 'user/getCodeConfirmRegistration/fulfilled') {
           navigate('/confirm-email');

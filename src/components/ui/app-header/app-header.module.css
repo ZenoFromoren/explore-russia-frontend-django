@@ -132,6 +132,10 @@
   align-self: stretch;
 }
 
+.inputBlock:focus-within{
+  outline: 1.5px solid #000;
+}
+
 .search {
   display: flex;
   gap: 10px;

@@ -16,7 +16,7 @@ export const SearchPageUI: FC<TSearchPageUIProps> = ({ searchResults }) => (
         </h2>
         <div className={styles.searchResultsList}>
           {searchResults.map((searchResult) => {
-            const { id, createdAt, city, title, image, text } = searchResult;
+            const { id, created_at, city, title, image, text } = searchResult;
 
             const parser = new DOMParser();
             const htmlText = parser.parseFromString(text, 'text/html');
@@ -24,7 +24,7 @@ export const SearchPageUI: FC<TSearchPageUIProps> = ({ searchResults }) => (
             return (
               <SearchResult
                 id={id}
-                createdAt={createdAt}
+                created_at={created_at}
                 city={city}
                 title={title}
                 image={image}

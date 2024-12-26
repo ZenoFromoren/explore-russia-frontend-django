@@ -1,6 +1,6 @@
 import {
   getCodeConfirmRegistration,
-  getCodeForgotPassword,
+  getCodeResetPassword,
   getUser,
   loginUser,
   loginYandex,
@@ -107,6 +107,7 @@ export const userSlice = createSlice({
         state.userData = action.payload;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+        console.log(action.payload)
         state.userData = action.payload;
       })
       .addCase(getUser.pending, (state) => {
@@ -144,15 +145,15 @@ export const userSlice = createSlice({
         state.registerError = action.error.message as string;
         state.code = undefined;
       })
-      .addCase(getCodeForgotPassword.pending, (state) => {
+      .addCase(getCodeResetPassword.pending, (state) => {
         state.isCodeRequest = true;
         state.code = undefined;
       })
-      .addCase(getCodeForgotPassword.fulfilled, (state, action) => {
+      .addCase(getCodeResetPassword.fulfilled, (state, action) => {
         state.isCodeRequest = false;
         state.code = action.payload.code;
       })
-      .addCase(getCodeForgotPassword.rejected, (state) => {
+      .addCase(getCodeResetPassword.rejected, (state) => {
         state.isCodeRequest = false;
         state.code = undefined;
       });

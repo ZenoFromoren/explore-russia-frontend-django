@@ -20,7 +20,7 @@ export const Comment: FC<TCommentProps> = ({
   locationState,
   handleEditComment,
 }) => {
-  const { id: commentId, text, owner, createdAt, updatedAt } = commentData;
+  const { id: commentId, text, owner, created_at, updated_at, is_edited } = commentData;
   const { id: ownerId, username, city } = owner;
 
   return (
@@ -42,26 +42,28 @@ export const Comment: FC<TCommentProps> = ({
             </div>
             <p
               className={styles.date}
-            >{`${new Date(createdAt).toLocaleDateString()} ${new Date(createdAt).toLocaleTimeString()}`}</p>
-            {createdAt !== updatedAt && (
+            >{`${new Date(created_at).toLocaleDateString()} ${new Date(created_at).toLocaleTimeString()}`}</p>
+            {is_edited && (
               <p className={styles.date}>
-                {`(ред. ${new Date(updatedAt).toLocaleDateString()} ${new Date(updatedAt).toLocaleTimeString()})`}
+                {`(ред. ${new Date(updated_at).toLocaleDateString()} ${new Date(updated_at).toLocaleTimeString()})`}
               </p>
             )}
           </div>
           <div className={styles.commentButtons}>
             {userId === ownerId && (
-              <Link
-                to={`comments/edit/${commentId}`}
-                state={locationState}
-              >
+              <Link to={`comments/edit/${commentId}`} state={locationState}>
                 <EditButton
                   className={styles.commentButton}
                   onClick={handleEditComment}
                 />
               </Link>
             )}
-            <ReplyButton className={styles.commentButton} />
+            <Link to={`comments/reply/${commentId}`} state={locationState}>
+              <ReplyButton
+                className={styles.commentButton}
+                onClick={handleEditComment}
+              />
+            </Link>
           </div>
         </div>
         <p className={styles.text}>{text}</p>

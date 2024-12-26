@@ -35,16 +35,7 @@ export const Post: FC = () => {
   const post = useSelector(postsSelectors.selectCurrentPost);
   let comments = useSelector(postsSelectors.selectComments);
 
-  if (comments) {
-    comments = [...comments!]
-      .filter((comment) => comment.parentId === null)
-      .sort(function (comment1, comment2) {
-        return (
-          new Date(comment2.createdAt).getTime() -
-          new Date(comment1.createdAt).getTime()
-        );
-      });
-  }
+  // console.log(comments)
 
   const isAuth = useSelector(userSelectors.selsectIsAuthenticated);
   const userId = useSelector(userSelectors.selectUserData)!?.id;
@@ -100,8 +91,8 @@ export const Post: FC = () => {
   };
 
   const handleLeaveAComment = () => {
-    dispatch(leaveAComment({ text: commentText, userId, postId }));
-    dispatch(fetchPostById(postId));
+    dispatch(leaveAComment({ text: commentText, post: postId, parent: null}));
+    dispatch(getComments(postId));
     setCommentText('');
   };
 
@@ -112,7 +103,7 @@ export const Post: FC = () => {
       comment.querySelectorAll('p')[comment.querySelectorAll('p').length - 1]
         .textContent;
 
-    dispatch(postsActions.setEditCommentData({ id: commentId, text }));
+    dispatch(postsActions.setCommentData({ id: commentId, text, postId }));
   };
 
   Array.from(

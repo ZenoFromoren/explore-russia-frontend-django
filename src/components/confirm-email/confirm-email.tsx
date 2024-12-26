@@ -3,12 +3,14 @@ import { ConfirmEmailUI } from '../ui/confirm-email/confirm-email';
 import { useDispatch, useSelector } from '../../services/store';
 import { userSelectors } from '../../services/slices/userSlice';
 import { getCodeConfirmRegistration, registerUser } from '../../services/thunks/userThunks';
+import { useNavigate } from 'react-router-dom';
 
 export const ConfirmEmail: FC = () => {
   const [userCode, setUserCode] = useState('');
   const [codeError, setCodeError] = useState<string | null>(null);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const registerData = useSelector(userSelectors.selectRegisterData);
   const code = useSelector(userSelectors.selectCode);
@@ -20,6 +22,7 @@ export const ConfirmEmail: FC = () => {
       return;
     }
     dispatch(registerUser(registerData!));
+    navigate(-2)
   };
 
   const sendCodeAgain = () => {

@@ -15,6 +15,10 @@
   font-family: 'Roboto';
 }
 
+.inputBlock:focus-within, .textArea:focus-visible {
+  outline: 1.5px solid #000;
+}
+
 .input,
 .input::placeholder,
 .updateProfileFormButton,
@@ -30,7 +34,6 @@
   border: none;
   margin-block: 12px;
   resize: none;
-  block-size: auto;
   block-size: 100px;
 }
 
@@ -39,8 +42,7 @@ textarea::placeholder {
   color: #8e8e8e;
 }
 
-.input:focus-visible,
-textarea:focus-visible {
+.input:focus-visible {
   outline: none;
 }
 
@@ -58,7 +60,7 @@ textarea:focus-visible {
   border: none;
   font-family: 'Roboto';
   padding: 20px 24px;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease;
   cursor: pointer;
   margin-block-start: 12px;
 }

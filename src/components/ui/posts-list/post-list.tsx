@@ -14,13 +14,13 @@ export const PostsListUI: FC<PostsListUIProps> = ({ posts }) => (
       <h1 className={styles.title}>Последние публикации</h1>
       <section className={styles.postsList}>
         {posts.map((postData) => {
-          const { id, createdAt, city, title, image } = postData;
+          const { id, created_at, city, title, image } = postData;
 
           return (
             <Link to={`/posts/${id}`} className={styles.postLink} key={id}>
               <PostCard
                 id={id}
-                createdAt={createdAt}
+                created_at={created_at}
                 city={city}
                 title={title}
                 image={image}

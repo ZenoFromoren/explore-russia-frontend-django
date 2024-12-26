@@ -27,28 +27,6 @@ export const Login: FC = () => {
 
   const handleLoginYandex = () => dispatch(loginYandex());
 
-  // window.YaAuthSuggest.init(
-  //   {
-  //     client_id: import.meta.env.VITE_YANDEX_CLIENT_ID,
-  //     response_type: 'token',
-  //     redirect_uri: import.meta.env.VITE_YANDEX_REDIRECT_URI
-  //  },
-  //   tokenPageOrigin,
-  //   {
-  //     view: "button",
-  //     parentId: "buttonContainerId",
-  //     buttonSize: 'm',
-  //     buttonView: 'main',
-  //     buttonTheme: 'light',
-  //     buttonBorderRadius: "0",
-  //     buttonIcon: 'ya',
-  //   }
-  // )
-  // .then(({handler}) => handler())
-  // .then(data => console.log('Сообщение с токеном', data))
-  // .catch(error => console.log('Обработка ошибки', error))
-
-
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));

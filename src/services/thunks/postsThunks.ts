@@ -2,6 +2,7 @@ import {
   fetchLastPostsApi,
   fetchPostsApi,
   fetchPostByIdApi,
+  searchPostsApi,
 } from '../../utils/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -23,5 +24,13 @@ export const fetchPostById = createAsyncThunk(
   async (postId: number) => {
     const post = await fetchPostByIdApi(postId);
     return post;
+  }
+);
+
+export const searchPosts = createAsyncThunk(
+  'posts/searchPosts',
+  async (query: string) => {
+    const posts = await searchPostsApi(query);
+    return posts;
   }
 );

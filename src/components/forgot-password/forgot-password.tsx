@@ -2,7 +2,7 @@ import { FC, SyntheticEvent, useState } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
 import { userSelectors } from '../../services/slices/userSlice';
 import { ForgotPasswordUI } from '../ui/forgot-password/forgot-password';
-import { getCodeForgotPassword } from '../../services/thunks/userThunks';
+import { getCodeResetPassword } from '../../services/thunks/userThunks';
 import { useNavigate } from 'react-router-dom';
 
 export const ForgotPassword: FC = () => {
@@ -24,7 +24,7 @@ export const ForgotPassword: FC = () => {
   };
 
   const sendCodeAgain = () => {
-    dispatch(getCodeForgotPassword());
+    dispatch(getCodeResetPassword());
   } 
 
   return (

@@ -3,7 +3,7 @@ import { ProfileUI } from '../ui/profile/profile';
 import { useDispatch, useSelector } from '../../services/store';
 import { userActions, userSelectors } from '../../services/slices/userSlice';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getCodeForgotPassword } from '../../services/thunks/userThunks';
+import { getCodeResetPassword } from '../../services/thunks/userThunks';
 
 export const Profile: FC = () => {
   const userData = useSelector(userSelectors.selectUserData);
@@ -12,7 +12,7 @@ export const Profile: FC = () => {
     userName: userData?.username,
     city: userData?.city,
     about: userData?.about,
-    dateOfRegistration: userData?.createdAt,
+    dateOfRegistration: userData?.date_joined,
     avatar: userData?.avatar,
   };
 
@@ -27,8 +27,9 @@ export const Profile: FC = () => {
   };
 
   const handleForgotPassword = () => {
-    dispatch(getCodeForgotPassword()).then((res) => {
-      if (res.type === 'user/getCodeForgotPassword/fulfilled') {
+    dispatch(getCodeResetPassword()).then((res) => {
+      console.log(res.type)
+      if (res.type === 'user/getCodeResetPassword/fulfilled') {
         navigate('/forgot-password');
       }
     });
