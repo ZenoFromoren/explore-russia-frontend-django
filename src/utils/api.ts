@@ -11,7 +11,6 @@ import {
   TRegisterData,
   TUpdateData,
   TUser,
-  TRepliesData,
 } from './types';
 
 const URL = import.meta.env.VITE_URL;
@@ -31,7 +30,6 @@ export const refreshToken = (): Promise<TRefreshResponse> =>
   })
     .then((res) => checkResponse<TRefreshResponse>(res))
     .then((refreshData) => {
-      // localStorage.setItem('refreshToken', `Bearer ${refreshData.refresh}`);
       setCookie('accessToken', `Bearer ${refreshData.access}`);
       return refreshData;
     });
@@ -193,10 +191,3 @@ export const editCommentApi = async (
       return data;
     })
     .catch((err) => Promise.reject(err));
-
-export const getRepliesApi = async (
-  repliesData: TRepliesData
-): Promise<TComment[]> =>
-  await fetch(
-    `${URL}/posts/${repliesData.post}/comments/${repliesData.parent}/`
-  ).then((res) => checkResponse<TComment[]>(res));

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   TComment,
   TCreateCommentData,
-  TEditCommentData,
+  TCommentData,
 } from '../../utils/types';
 import { editCommentApi, getCommentsApi, leaveACommentApi } from '../../utils/api';
 
@@ -16,7 +16,7 @@ export const leaveAComment = createAsyncThunk(
 
 export const editComment = createAsyncThunk(
   'comments/editComment',
-  async (editCommentData: TEditCommentData): Promise<TComment> => {
+  async (editCommentData: TCommentData): Promise<TComment> => {
     const commentData = await editCommentApi(editCommentData);
     return commentData;
   }
