@@ -10,6 +10,6 @@ RUN npm run build
 FROM nginx:latest AS runner
 
 WORKDIR /app
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
