@@ -14,7 +14,6 @@ type TLoginUIProps = {
   isPasswordShowed: boolean;
   showHidePassword: () => void;
   loginFormError: string | undefined;
-  handleLoginYandex: () => void;
   handleSubmit: (e: SyntheticEvent) => void;
 };
 
@@ -26,7 +25,6 @@ export const LoginUI: FC<TLoginUIProps> = ({
   isPasswordShowed,
   showHidePassword,
   loginFormError,
-  handleLoginYandex,
   handleSubmit,
 }) => {
   return (

@@ -10,7 +10,7 @@ export const PostListSkeleton = () => (
       <section className={styles.postsList}>
         {Array(3)
           .fill(3)
-          .map((item, index) => (
+          .map((_item, index) => (
             <PostCardSkeleton key={index} />
           ))}
       </section>

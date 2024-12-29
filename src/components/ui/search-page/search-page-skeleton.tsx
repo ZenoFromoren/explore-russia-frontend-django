@@ -9,7 +9,7 @@ export const SearchPageSkeleton = () => (
     <section className={styles.searchResultsList}>
       {Array(2)
         .fill(2)
-        .map((item, index) => (
+        .map((_item, index) => (
           <SearchResultSkeleton key={index} />
         ))}
     </section>

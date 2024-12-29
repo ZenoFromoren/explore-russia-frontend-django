@@ -1,7 +1,7 @@
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { LoginUI } from '../ui/login/login';
 import { useDispatch, useSelector } from '../../services/store';
-import { loginUser, loginYandex } from '../../services/thunks/userThunks';
+import { loginUser } from '../../services/thunks/userThunks';
 import { userSelectors } from '../../services/slices/userSlice';
 
 export const Login: FC = () => {
@@ -25,8 +25,6 @@ export const Login: FC = () => {
 
   const showHidePassword = () => setIsPasswordShowed((prevState) => !prevState);
 
-  const handleLoginYandex = () => dispatch(loginYandex());
-
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));
@@ -41,7 +39,6 @@ export const Login: FC = () => {
       isPasswordShowed={isPasswordShowed}
       showHidePassword={showHidePassword}
       loginFormError={loginFormError}
-      handleLoginYandex={handleLoginYandex}
       handleSubmit={handleSubmit}
     />
   );
